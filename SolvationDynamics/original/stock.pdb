@@ -1,0 +1,9 @@
+TITLE     Stockmayer fluid
+REMARK    THIS IS A SIMULATION BOX
+CRYST1   30.000   30.000   30.000  90.00  90.00  90.00 P 1           1
+MODEL        1
+ATOM      1  POS SMY     1      14.000  15.000  15.000  1.00  0.00           P
+ATOM      2  NEG SMY     1      16.000  15.000  15.000  1.00  0.00           N
+ATOM      3  CTR SMY     1      15.000  15.000  15.000  1.00  0.00           C
+TER
+ENDMDL

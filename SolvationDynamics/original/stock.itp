@@ -1,0 +1,7 @@
+[ moleculetype ]
+SMY               3
+
+[ atoms ]
+1        POS           1      SMY       POS     1      1.0000
+2        NEG           1      SMY       NEG     1     -1.0000
+3        CTR           1      SMY       CTR     1      0.0000

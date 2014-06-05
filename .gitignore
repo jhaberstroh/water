@@ -1,0 +1,8 @@
+SolvationDynamics/result
+SolvationDynamics/simulation
+*.pyc
+*.pkl
+*.gro
+*.trr
+*.ff
+*.xtc

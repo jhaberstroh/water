@@ -20,11 +20,11 @@ def rn(n_index, R_sph, numgrid):
 	#print r
 	return r, func
 
-C1G = 20  
-C2G = 20
+C1G = 30  
+C2G = 30
 R1G = 20
 R2G = 20
-PG =  20
+PG =  10
 
 RAD_SPHERE = 3
 
@@ -186,14 +186,15 @@ def loadChi(fname="Sk.dat"):
 if __name__ == "__main__":
 	print "Running text of matrix element solver"
 	
-
+	x,hww = loadChi()
 	#integral, dist = Jnlmj_R(1,1,1,1,8, x, hww)
 
-	n_n = 3
-	n_l = 3
+	n_n = 5
+	n_l = 6
 	N,L = np.meshgrid(range(n_n),range(n_l))
 
-	nl_index = zip(N.flatten(), L.flatten())
+	nl_index = np.array(zip(N.flatten(), L.flatten()))
+
 
 	Jnlmj_mtx = np.zeros((n_n*n_l, n_n*n_l))
 	bmj_vec = np.zeros((n_n*n_l,))
@@ -202,9 +203,11 @@ if __name__ == "__main__":
 	for i,nl in enumerate(nl_index):
 		bmj_vec[i] = bnl(nl[0],nl[1])
 		print "b_mj: ", bmj_vec[i]
-		for j,mj in enumerate(nl_index):
+		for j,mj in enumerate(nl_index[i:]):
 			print "nl mj:",nl[0],nl[1],mj[0],mj[1]
-			Jnlmj_mtx[i,j] = Jnlmj_R(nl[0],nl[1],mj[0],mj[1],8, x, hww)
+			ij_val = Jnlmj_R(nl[0],nl[1],mj[0],mj[1],8, x, hww)
+			Jnlmj_mtx[i,j] = ij_val
+			Jnlmj_mtx[j,i] = ij_val
 			print "Jnlmj:", Jnlmj_mtx[i,j]
 
 	print "J Matrix:"

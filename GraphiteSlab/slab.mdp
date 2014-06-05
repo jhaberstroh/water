@@ -1,0 +1,8 @@
+
+
+pbc	 	= xy
+ewald-geometry 	= 3dc
+nwall 		= 2
+wall-atomtype 	= THING THAT DOESN"T EXIST YET
+wall-type	= 12-6 					# The simple one?
+wall-density	= LOOK UP

@@ -32,7 +32,7 @@ def ConvergeR(R, chi_x, chi_y):
 	x = np.zeros(mesh_vals.shape)
 	for i, rmesh in enumerate(mesh_vals):
 		print "Mesh ",rmesh,"...",
-		SetMesh(DEF_R_C, DEF_R_C, rmesh, rmesh, def_R_P)
+		SetMesh(R_C, R_C, rmesh, rmesh, R_P)
 		x[i] = itg.Jnlmj_R(2,2,2,2,R,chi_x, chi_y)
 		print "value =",x[i]
 	return mesh_vals, x
@@ -52,15 +52,15 @@ def ConvergePhi(R, chi_x, chi_y):
 if __name__ == "__main__":
 	chi_x, chi_y = itg.loadChi()
 
-	#cmesh, cmtx_el = ConvergeCos(8, chi_x, chi_y)
-	#plt.plot(cmesh,cmtx_el)
-	#plt.title("Converging cos mesh")
-	#plt.show()
-
-	rmesh, rmtx_el = ConvergeR(8, chi_x, chi_y)
-	plt.plot(rmesh,rmtx_el)
-	plt.title("Converging radial mesh")
+	cmesh, cmtx_el = ConvergeCos(8, chi_x, chi_y)
+	plt.plot(cmesh,cmtx_el)
+	plt.title("Converging cos mesh")
 	plt.show()
+
+	#rmesh, rmtx_el = ConvergeR(8, chi_x, chi_y)
+	#plt.plot(rmesh,rmtx_el)
+	#plt.title("Converging radial mesh")
+	#plt.show()
 
 	#pmesh, pmtx_el = ConvergePhi(8, chi_x, chi_y)
 	#plt.plot(pmesh,pmtx_el)

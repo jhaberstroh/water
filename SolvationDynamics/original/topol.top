@@ -1,0 +1,29 @@
+#include "amber03.ff/forcefield.itp"
+
+[ atomtypes ]
+; name  atomtype  mass   charge   ???   sigma  epsilon
+  POS   POS       0.00    0.000    A    0.000   0.000
+  NEG   NEG       0.00    0.000    A    0.000   0.000
+  CTR   CTR       0.00    0.000    A    1.000   1.000
+
+[ moleculetype ]
+; name nrexcl
+SMY    3
+
+[ atoms ]
+;   nr         type    resnr   residue  atom   cgnr     charge        mass   typeB  chargeB   massB
+    1       POS            1      SMY    POS     1      1.000        1.000
+    2       NEG            1      SMY    NEG     1     -1.000        1.000
+    3       CTR            1      SMY    CTR     1      0.000        1.000
+
+[ constraints ]
+; constrain the distance to 2A
+; atom1 atom2 type dist 
+    1    3   1   .2000
+
+
+[ system ]
+SMY in vacuo in water
+
+[ molecules ]
+SMY     1
